@@ -62,12 +62,6 @@ export default {
 
     },
 
-    ready() {
-    
-        this.open();
-
-    },
-
     events: {
 
         'ImageDeselected': function( image ) {
