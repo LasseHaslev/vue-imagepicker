@@ -1,0 +1,21 @@
+{
+  "name": "@lassehaslev/imagesizerjs",
+  "version": "0.1.0",
+  "description": "Adds image size options to filname ( Automaticly ads -{width}x{height}-resize to filename ).",
+  "main": "src/ImageSize.js",
+  "author": "Lasse S. Haslev <lasse@haslev.no>",
+  "license": "ISC",
+  "scripts": {
+    "prod": "gulp --production",
+    "dev": "gulp watch"
+  },
+  "devDependencies": {
+    "bootstrap-sass": "^3.3.0",
+    "gulp": "^3.9.1",
+    "laravel-elixir": "^5.0.0",
+    "laravel-elixir-vueify": "^1.0.3"
+  },
+  "dependencies": {
+    "vue-modal-browserify": "^0.8.17"
+  }
+}
