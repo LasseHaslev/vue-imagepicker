@@ -97,19 +97,6 @@ export default {
         };
     },
 
-    computed: {
-        imagePath: function() {
-
-        // Create path for image
-            return window.admin.helpers.image.path( this.image.path, {
-                width: 200,
-                height: 200,
-                resize: true,
-            } );
-            
-        },
-    },
-
     ready: function() {
         var self = this;
         this.$el.addEventListener( 'load', function() {
@@ -128,23 +115,8 @@ export default {
     methods: {
 
         checkSelected: function() {
-
-            var imageIsSelected = false;
-            // Set index
-            var index = this.selectedImages.length;
-            // Loop through any indexes
-            while ( index > 0 && this.image ) {
-
-                // Get the selected image on index
-                var image = this.selectedImages[ index-1 ];
-                // Check if we should quick and say its selected
-                if ( image && this.image.path == image.path ) {
-                    imageIsSelected = true;
-                    break;
-                }
-                index--;
-            }
-            this.$set( 'selected', imageIsSelected );
+            var index = this.selectedImages.indexOf( this.image )
+            this.$set( 'selected', index != -1 ? true : false );
         },
 
         select: function() {
