@@ -1,23 +1,50 @@
-# @lassehaslev/imagesizerjs
-> Automaticly ads ```-{width}x{height}-resize``` to image filename.
-
-## Usage
-```
-var ImageSize = require( '@lassehaslev/imagesizerjs' );
-var imageSize = new ImageSize( document.querySelector( 'img' ), {
-    steps: 200, // How many pixels before new image
-} );
-```
+# @lassehaslev/vue-imagepicker
+> Simple image picker for vuejs.
 
 ## Installation
+Run ```npm install @lassehaslev/vue-imagepicker --save``` in your project folder
 
-Run ```npm install @lassehaslev/imagesizerjs --save``` in your project folder
+## Usage
+``` js
+import ImagePicker from '@lassehaslev/vue-imagepicker';
+
+<template>
+    <!-- Use either url or models -->
+    <image-picker
+
+        <!-- If url is set, we replace the image models -->
+        url="/path/to/api"
+
+        <!-- Sets models to use in array -->
+        :models="[{ path: '/path/to/image.jpg' }]"
+
+        <!-- Sets multiple selection -->
+        :multiple="true">
+
+        <!-- All elemetns inside the image-picker tag are clickacke and will lunch the image-picker modal -->
+        <button>Select image</button>
+
+    </image-picker>
+</template>
+<script>
+export default {
+    components: { ImagePicker }
+    events: {
+        'ImageSelected'( image ) {
+            console.log( image )
+        }
+    }
+}
+</script>
+});
+
+```
 
 
 ## Development
 ``` bash
 # Clone package
-git clone https://github.com/LasseHaslev/imagesizerjs
+git clone https://github.com/LasseHaslev/vue-imagepicker
 
 # install dependencies
 npm install
