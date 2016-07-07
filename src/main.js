@@ -1,4 +1,6 @@
 import Vue from 'vue'
+import VueResource from 'vue-resource';
+Vue.use( VueResource );
 import ImagePicker from './ImagePicker/ImagePicker.vue'
 
 var data = [];

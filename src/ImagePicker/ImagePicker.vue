@@ -22,7 +22,7 @@
     <modal v-ref:modal>
 
         <div class="ImagePicker__grid">
-            <picker-item v-for="image in images | orderBy 'updated_at' -1" :image.sync="image" :selected-images.sync="selected"></picker-item>
+            <picker-item v-for="image in models | orderBy 'updated_at' -1" :image.sync="image" :selected-images.sync="selected"></picker-item>
         </div>
 
         <button type="button" class="Button Button--primary" @click="confirm">Select</button>
@@ -33,10 +33,13 @@
 </template>
 <script>
 
+import { container } from '@lassehaslev/restful-vue';
 import Modal from 'vue-modal-browserify';
 import PickerItem from './PickerItem.vue';
 
 export default {
+
+    mixins: [ container ],
 
     props: {
 
@@ -57,33 +60,15 @@ export default {
             },
         },
 
-        images: {
-            type: Array,
-            default() {
-                return [];
-            }
-        }
-
     },
 
     ready() {
-        this.$refs.modal.open();
+    
+        this.open();
+
     },
 
     events: {
-
-        'ImageUploaded': function( image ) {
-
-            // Add image to images list
-            this.images.push(image);
-
-            // Add the selected image if no image is selected
-            if ( !( this.images.indexOf( this.selected[0] ) > -1 ) ) {
-                this.$set( 'selected', [] );
-                this.selected.push( image );
-            }
-
-        },
 
         'ImageDeselected': function( image ) {
 
@@ -106,29 +91,14 @@ export default {
 
     methods: {
         open: function() {
-            this.$set( 'selected', this.selected );
-            this.loadImages();
+            /* this.$set( 'selected', this.selected ); */
+            var self = this;
             this.$refs.modal.open();
         },
 
-        loadImages: function() {
-
-            var self = this;
-
-            var slug = this.$route.params ? this.$route.params.account : null;
-            if ( slug ) {
-                ImageService.getFromAccount( this.account ).then( function( images ) {
-                    self.$set( 'accountImages', images );
-                    self.selectFirst();
-
-                } );
-            }
-
-        },
-
         selectFirst: function() {
-            if ( ! this.multiple && ! this.selected.length && this.images.length ) {
-                this.selected.push( this.images[0] );
+            if ( ! this.multiple && ! this.selected.length && this.models.length ) {
+                this.selected.push( this.models[0] );
             }
         },
 
