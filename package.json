@@ -1,6 +1,6 @@
 {
   "name": "@lassehaslev/imagesizerjs",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Adds image size options to filname ( Automaticly ads -{width}x{height}-resize to filename ).",
   "main": "src/ImagePicker/ImagePicker.vue",
   "author": "Lasse S. Haslev <lasse@haslev.no>",
