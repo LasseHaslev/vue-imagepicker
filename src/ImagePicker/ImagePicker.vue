@@ -33,13 +33,10 @@
 </template>
 <script>
 
-import { container } from '@lassehaslev/restful-vue';
 import Modal from 'vue-modal-browserify';
 import PickerItem from './PickerItem.vue';
 
 export default {
-
-    mixins: [ container ],
 
     props: {
 
@@ -54,6 +51,13 @@ export default {
         },
 
         selected: {
+            type: Array,
+            default() {
+                return [];
+            },
+        },
+
+        models: {
             type: Array,
             default() {
                 return [];
@@ -86,8 +90,30 @@ export default {
     methods: {
         open: function() {
             /* this.$set( 'selected', this.selected ); */
+
             var self = this;
-            this.$refs.modal.open();
+            this.loadImages().then( function() {
+                this.$refs.modal.open();
+            } );
+            
+        },
+
+        loadImages() {
+            // If no image is provided we just resolve the promise 
+            if ( ! this.url ) {
+                return Promise.resolve();
+            }
+
+            // Else
+            var self = this;
+            return new Promise( function( resolve, reject ) {
+                self.$http.get( this.url ).then( function( request ) {
+                    self.$set( 'models', request.data.data );
+                    resolve();
+                }).catch(function( reason ) {
+                    reject( reason );
+                });
+            } );
         },
 
         selectFirst: function() {

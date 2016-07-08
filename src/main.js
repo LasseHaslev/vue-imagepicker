@@ -1,7 +1,9 @@
 import Vue from 'vue'
-import VueResource from 'vue-resource';
-Vue.use( VueResource );
-import ImagePicker from './ImagePicker/ImagePicker.vue'
+
+import { ImagePickerInstall } from './ImagePicker/ImagePicker'
+import ImagePicker from './ImagePicker/ImagePicker'
+
+// import ImagePicker from './ImagePicker/ImagePicker.vue'
 
 var data = [];
 for (var i = 0, len = 10; i < len; i++) {
