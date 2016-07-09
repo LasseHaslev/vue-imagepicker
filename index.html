@@ -8,8 +8,12 @@
     </head>
     <body>
 
-        <image-picker :selected="selected" :multiple="multiple" :models="images">
-            <button>Test</button>
+        <image-picker :selected="images[ 1 ]" :models="images">
+            <button>Select single</button>
+        </image-picker>
+
+        <image-picker :selected="selected" :multiple="true" :models="images">
+            <button>Select multiple</button>
         </image-picker>
 
         <script src="/dist/js/build.js"></script>

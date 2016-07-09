@@ -51,10 +51,7 @@ export default {
         },
 
         selected: {
-            type: Array,
-            default() {
-                return [];
-            },
+            default: null,
         },
 
         models: {
@@ -96,7 +93,7 @@ export default {
     methods: {
         open: function() {
             console.log( this.selected );
-            this.$set( 'selectedImages', this.selected.slice(0) );
+            this.$set( 'selectedImages', this.multiple ? this.selected.slice(0) : [ this.selected ] );
 
             var self = this;
             this.loadImages().then( function() {
