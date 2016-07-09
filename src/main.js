@@ -18,13 +18,21 @@ new Vue({
 
     data() {
         return {
+            multiple: true,
+            selected: [ data[3] ],
             images: data,
         }
     },
 
     events: {
         'ImageSelected'( selected ) {
-            console.log( selected );
+            if ( this.multiple ) {
+                this.$set( 'selected', selected );
+            }
+            else {
+                this.$set( 'selected', [ selected ] );
+            }
+            console.log(this.selected);
         }
     },
 

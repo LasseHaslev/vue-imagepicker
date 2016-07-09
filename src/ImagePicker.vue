@@ -15,18 +15,18 @@
 }
 </style>
 <template>
-    <span @click="$refs.modal.open">
+    <span @click="open">
         <slot></slot>
     </span>
 
     <modal v-ref:modal>
 
         <div class="ImagePicker__grid">
-            <picker-item v-for="image in models | orderBy 'updated_at' -1" :image.sync="image" :selected-images.sync="selected"></picker-item>
+            <picker-item v-for="image in models | orderBy 'updated_at' -1" :image.sync="image" :selected-images.sync="selectedImages"></picker-item>
         </div>
 
         <button type="button" class="Button Button--primary" @click="confirm">Select</button>
-        <button type="button" class="Button Button--default" data-dismiss="modal" @click="$refs.modal.close()">Close</button>
+        <button type="button" class="Button Button--default" data-dismiss="modal" @click="cancel">Close</button>
 
     </modal>
 
@@ -66,6 +66,12 @@ export default {
 
     },
 
+    data() {
+        return {
+            selectedImages: [],
+        }
+    },
+
     events: {
 
         'ImageDeselected': function( image ) {
@@ -89,11 +95,12 @@ export default {
 
     methods: {
         open: function() {
-            /* this.$set( 'selected', this.selected ); */
+            console.log( this.selected );
+            this.$set( 'selectedImages', this.selected.slice(0) );
 
             var self = this;
             this.loadImages().then( function() {
-                this.$refs.modal.open();
+                self.$refs.modal.open();
             } );
             
         },
@@ -117,35 +124,39 @@ export default {
         },
 
         selectFirst: function() {
-            if ( ! this.multiple && ! this.selected.length && this.models.length ) {
-                this.selected.push( this.models[0] );
+            if ( ! this.multiple && ! this.selectedImages.length && this.models.length ) {
+                this.selectedImages.push( this.models[0] );
             }
         },
 
         selectImage: function( image ) {
 
             if ( this.multiple ) {
-                this.selected.push( image );
+                this.selectedImages.push( image );
             }
             else {
-                this.$set( 'selected', [ image ] );
+                this.$set( 'selectedImages', [ image ] );
             }
         },
 
         removeImage: function( image ) {
-            var index = this.selected.indexOf( image );
-            this.selected.splice( index, 1 );
+            var index = this.selectedImages.indexOf( image );
+            this.selectedImages.splice( index, 1 );
         },
 
         confirm: function() {
 
-            var data = this.multiple ? this.selected : this.selected[0];
+            var data = this.multiple ? this.selectedImages : this.selectedImages[0];
 
             this.$dispatch( 'ImageSelected', data );
 
             this.$refs.modal.close();
 
             return data;
+        },
+
+        cancel() {
+            this.$refs.modal.close();
         },
     },
 
