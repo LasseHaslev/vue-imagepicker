@@ -1,6 +1,6 @@
 {
   "name": "@lassehaslev/vue-imagepicker",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Adds image size options to filname ( Automaticly ads -{width}x{height}-resize to filename ).",
   "main": "src/ImagePicker.js",
   "author": "Lasse S. Haslev <lasse@haslev.no>",
