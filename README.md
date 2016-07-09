@@ -6,6 +6,12 @@ Run ```npm install @lassehaslev/vue-imagepicker --save``` in your project folder
 
 ## Usage
 ``` js
+import Vue from 'vue'
+
+// Install dependencies
+import { ImagePickerInstall } from '@lassehaslev/vue-imagepicker';
+Vue.use( ImagePickerInstall );
+
 import ImagePicker from '@lassehaslev/vue-imagepicker';
 
 <template>
@@ -42,6 +48,15 @@ export default {
 
 
 ## Development
+Because of strange error with browserify you need to remove. before compiling. Just be sure to put it back in, before you publish.
+``` json
+  "browserify": {
+    "transform": [
+      "vueify",
+      "babelify"
+    ]
+  }
+```
 ``` bash
 # Clone package
 git clone https://github.com/LasseHaslev/vue-imagepicker
