@@ -2,7 +2,7 @@
   "name": "@lassehaslev/vue-imagepicker",
   "version": "0.1.4",
   "description": "Adds image size options to filname ( Automaticly ads -{width}x{height}-resize to filename ).",
-  "main": "src/ImagePicker/ImagePicker.vue",
+  "main": "src/ImagePicker.js",
   "author": "Lasse S. Haslev <lasse@haslev.no>",
   "license": "ISC",
   "scripts": {
@@ -16,8 +16,8 @@
     "laravel-elixir-vueify": "^1.0.3"
   },
   "dependencies": {
-    "vue-modal-browserify": "^0.8.17",
-    "vue-resource": "^0.9.3"
+    "@lassehaslev/restful-vue": "^0.1.5",
+    "vue-modal-browserify": "^0.8.17"
   },
   "browserify": {
     "transform": [
