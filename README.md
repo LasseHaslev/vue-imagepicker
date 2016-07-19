@@ -46,6 +46,11 @@ export default {
 
 ```
 
+#### Styles
+Styles can be found ```dist/ImagePicker.styl```.
+
+##### Modify style
+You can also use ```src/styles/ImagePicker.styl``` to compile your own css.
 
 ## Development
 Because of strange error with browserify you need to remove. before compiling. Just be sure to put it back in, before you publish.
