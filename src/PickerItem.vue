@@ -1,7 +1,7 @@
 <template>
-<div class="PickerItem">
-    <a style="display:block;" href="#" @click.prevent="select" @dblclick.prevent="confirm" :class="{'PickerItem--selected':selected}">
-        <div class="PickerItem__image field-image bg-gray-lighter cursor-pointer" :style="{
+<div class="ImagePicker__PickerItem">
+    <a style="display:block;" href="#" @click.prevent="select" @dblclick.prevent="confirm" :class="{'ImagePicker__PickerItem--selected':selected}">
+        <div class="ImagePicker__PickerItem__image field-image bg-gray-lighter cursor-pointer" :style="{
             'background-image': 'url(' + image.path + ')',
         }"></div>
     </a>

@@ -9,8 +9,8 @@
             <picker-item v-for="image in models | orderBy 'updated_at' -1" :image.sync="image" :selected-images.sync="selectedImages"></picker-item>
         </div>
 
-        <button type="button" class="Button Button--primary" @click="confirm">Select</button>
-        <button type="button" class="Button Button--default" data-dismiss="modal" @click="cancel">Close</button>
+        <button type="button" class="ImagePicker__Button ImagePicker__Button--primary" @click="confirm">Select</button>
+        <button type="button" class="ImagePicker__Button ImagePicker__Button--default" data-dismiss="modal" @click="cancel">Close</button>
 
     </modal>
 
