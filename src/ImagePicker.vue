@@ -1,19 +1,3 @@
-<style lang="sass">
-.ImagePicker {
-    &__grid {
-        display: flex;
-        flex-wrap: wrap;
-        margin-left: -8px;
-        margin-right: -8px;
-    }
-}
-.Button {
-    border: 1px solid gray;
-    border-radius: 8px;
-    background-color: white;
-    padding: 10px 20px;
-}
-</style>
 <template>
     <span @click="open">
         <slot></slot>
@@ -33,7 +17,7 @@
 </template>
 <script>
 
-import Modal from 'vue-modal-browserify';
+import Modal from '@lassehaslev/vue-modal';
 import PickerItem from './PickerItem.vue';
 
 export default {
@@ -92,7 +76,6 @@ export default {
 
     methods: {
         open: function() {
-            console.log( this.selected );
             this.$set( 'selectedImages', this.multiple ? this.selected.slice(0) : [ this.selected ] );
 
             var self = this;

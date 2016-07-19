@@ -3,21 +3,41 @@
   "version": "0.1.7",
   "description": "Adds image size options to filname ( Automaticly ads -{width}x{height}-resize to filename ).",
   "main": "src/ImagePicker.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lassehaslev/vue-imagepicker.git"
+  },
+  "scripts": {
+    "watchify": "watchify -vd -p browserify-hmr -e src/main.js -o dist/build.js",
+    "serve": "http-server -c 1 -a localhost",
+    "dev": "npm-run-all --parallel watchify serve",
+    "build": "cross-env NODE_ENV=production browserify src/main.js | uglifyjs -c warnings=false -m > dist/build.js",
+    "style": "stylus -c src/styles/ImagePicker.styl -o dist/",
+    "prepublish": "npm run build; npm run style;"
+  },
   "author": "Lasse S. Haslev <lasse@haslev.no>",
   "license": "ISC",
-  "scripts": {
-    "prod": "gulp --production",
-    "dev": "gulp watch"
-  },
   "devDependencies": {
-    "bootstrap-sass": "^3.3.0",
-    "gulp": "^3.9.1",
-    "laravel-elixir": "^5.0.0",
-    "laravel-elixir-vueify": "^1.0.3"
+    "babel-core": "^6.0.0",
+    "babel-plugin-transform-runtime": "^6.0.0",
+    "babel-preset-es2015": "^6.0.0",
+    "babel-preset-stage-2": "^6.0.0",
+    "babel-runtime": "^6.0.0",
+    "babelify": "^7.2.0",
+    "browserify": "^12.0.1",
+    "browserify-hmr": "^0.3.1",
+    "cross-env": "^1.0.6",
+    "http-server": "^0.9.0",
+    "npm-run-all": "^1.6.0",
+    "stylus": "^0.54.5",
+    "uglify-js": "^2.5.0",
+    "vueify": "^8.5.2",
+    "watchify": "^3.4.0"
   },
   "dependencies": {
+    "vue": "^1.0.0",
     "@lassehaslev/restful-vue": "^0.1.5",
-    "vue-modal-browserify": "^0.8.17"
+    "@lassehaslev/vue-modal": "^0.1.0"
   },
   "browserify": {
     "transform": [
