@@ -17,10 +17,15 @@ $image-picker-check-mark ?= 'v';
         margin-right: -($image-picker-margin/2);
     }
     &__Button {
-        border: 1px solid gray;
-        border-radius: 8px;
-        background-color: white;
-        padding: 10px 20px;
+        @if mixin-exists( button ) {
+            button();
+        }
+        @else {
+            border: 1px solid gray;
+            border-radius: 8px;
+            background-color: white;
+            padding: 10px 20px;
+        }
     }
 
     &__PickerItem {

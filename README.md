@@ -47,7 +47,7 @@ export default {
 ```
 
 #### Styles
-Styles can be found ```dist/ImagePicker.styl```.
+Styles can be found ```dist/ImagePicker.css```.
 
 ##### Modify style
 You can also use ```src/styles/ImagePicker.styl``` to compile your own css.
