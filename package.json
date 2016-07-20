@@ -10,9 +10,10 @@
   "scripts": {
     "watchify": "watchify -vd -p browserify-hmr -e src/main.js -o dist/build.js",
     "serve": "http-server -c 1 -a localhost",
-    "dev": "npm-run-all --parallel watchify serve",
+    "dev": "npm-run-all --parallel watchify serve style style-watch",
     "build": "cross-env NODE_ENV=production browserify src/main.js | uglifyjs -c warnings=false -m > dist/build.js",
     "style": "stylus -c src/styles/ImagePicker.styl -o dist/",
+    "style-watch": "stylus -w -c src/styles/ImagePicker.styl -o dist/",
     "prepublish": "npm run build; npm run style;"
   },
   "author": "Lasse S. Haslev <lasse@haslev.no>",
