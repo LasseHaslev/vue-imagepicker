@@ -26,11 +26,18 @@ export default {
                     <image-picker url="https://jsonplaceholder.typicode.com/photos?limit=10"
     :images-adaptor="imagesAdaptor"
     :image-adaptor="imageAdaptor"
+    :selected="selected"
     ref="imagePicker"></image-picker>
                 </div>
             </section>
         </div>
     `,
+
+    data() {
+        return{
+            selected: [1,5],
+        }
+    },
 
     methods: {
         open() {

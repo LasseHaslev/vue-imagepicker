@@ -4,7 +4,8 @@ export default {
         <div class="column is-3">
             <div v-if="image.path"
                 style="padding-bottom: 100%"
-                @dblclick="$emit( 'confirm' )"
+                @dblclick.prevent="confirm"
+                @click="select"
                 :style="{
                     'background-image': 'url(' + image.path + ')',
                     'background-size':'contain',
@@ -12,6 +13,7 @@ export default {
                     'background-repeat': 'no-repeat',
                     'background-color': '#ccc',
                     'cursor':'pointer',
+                    'outline': isSelected ? '3px solid #0762D9' : '',
             }">
             </div>
         </div>
