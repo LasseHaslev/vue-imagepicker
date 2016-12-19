@@ -6,10 +6,10 @@ export default {
                 <div class="container">
                     <h3 class="title is-2">
                         <a href="https://github.com/LasseHaslev/vue-modal/blob/master/src/components/ImagePicker.js">
-                            Image picker
+                            Multiple image picker
                         </a>
                     </h3>
-                    <h4 class="subtitle is-4">Open a simple logic with bulma</h4>
+                    <h4 class="subtitle is-4">Selected</h4>
                     <p>If <a href="http://bulma.io/">Bulma.io</a> does not fit your needs, you can create a simular file like this package <a href="https://github.com/LasseHaslev/vue-modal/blob/master/src/components/ImagePicker.js">ImagePicker.js</a>.</p>
                     <p> Make shure you add the <a href="https://github.com/LasseHaslev/vue-modal/blob/master/src/components/BaseImagePicker.js">BaseImagePicker.js</a> as a mixin, and add events for click and close.</p>
 
@@ -24,6 +24,7 @@ export default {
                         <a @click="open" class="button is-primary is-large" href="#">Open image picker</a>
                     </div>
                     <image-picker url="https://jsonplaceholder.typicode.com/photos?limit=10"
+    :multiple="true"
     :images-adaptor="imagesAdaptor"
     :image-adaptor="imageAdaptor"
     :selected="selected"

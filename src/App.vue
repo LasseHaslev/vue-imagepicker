@@ -11,6 +11,7 @@
         </section>
 
         <simple-image-picker></simple-image-picker>
+        <multiple-image-picker></multiple-image-picker>
 
         <div class="hero is-primary">
             <div class="hero-body">
@@ -23,6 +24,7 @@
 
 <script>
 import SimpleImagePicker from './tutorials/SimpleImagePicker';
+import MultipleImagePicker from './tutorials/MultipleImagePicker';
 export default {
     name: 'app',
     data () {
@@ -31,6 +33,7 @@ export default {
     },
     components: {
         SimpleImagePicker,
+        MultipleImagePicker,
     }
 }
 </script>
