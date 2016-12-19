@@ -1,4 +1,5 @@
 import BaseModal from '@lassehaslev/vue-modal';
+import ImagePickerItem from './ImagePickerItem';
 
 export default {
     mixins: [ BaseModal ],
@@ -9,6 +10,12 @@ export default {
             default: null,
         },
         imagesAdaptor: {
+            type: Function,
+            default( images ) {
+                return images;
+            },
+        },
+        imageAdaptor: {
             type: Function,
             default( images ) {
                 return images;
@@ -38,5 +45,10 @@ export default {
                 console.log( response );
             } )
         },
-    }
+    },
+
+    components: {
+        ImagePickerItem,
+    },
+
 }

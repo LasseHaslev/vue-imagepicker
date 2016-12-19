@@ -25,6 +25,7 @@ export default {
                     </div>
                     <image-picker url="https://jsonplaceholder.typicode.com/photos?limit=10"
     :images-adaptor="imagesAdaptor"
+    :image-adaptor="imageAdaptor"
     ref="imagePicker"></image-picker>
                 </div>
             </section>
@@ -37,7 +38,13 @@ export default {
         },
         imagesAdaptor( images ) {
             return images.slice( 0, 5 );
-        }
+        },
+        imageAdaptor( image ) {
+            return {
+                id: image.id,
+                path: image.url,
+            };
+        },
     },
 
     components: {

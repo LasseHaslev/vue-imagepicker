@@ -6,7 +6,7 @@ export default {
             <div class="modal-background" @click="close"></div>
             <div class="modal-content">
         <div class="box">
-        <pre>{{ pickerImages | json }}</pre>
+            <image-picker-item v-for="image in pickerImages" :picker-image="image" :imageAdaptor="imageAdaptor"></image-picker-item>
         </div>
             </div>
             <button class="modal-close" @click="close"></button>
