@@ -23,7 +23,9 @@ export default {
                     <div class="has-text-centered">
                         <a @click="open" class="button is-primary is-large" href="#">Open image picker</a>
                     </div>
-                    <image-picker url="http://ad-min.io/api/accounts/1/images" ref="imagePicker"></image-picker>
+                    <image-picker url="https://jsonplaceholder.typicode.com/photos?limit=10"
+    :images-adaptor="imagesAdaptor"
+    ref="imagePicker"></image-picker>
                 </div>
             </section>
         </div>
@@ -32,6 +34,9 @@ export default {
     methods: {
         open() {
             this.$refs.imagePicker.open();
+        },
+        imagesAdaptor( images ) {
+            return images.slice( 0, 5 );
         }
     },
 

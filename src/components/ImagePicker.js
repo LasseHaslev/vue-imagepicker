@@ -6,7 +6,7 @@ export default {
             <div class="modal-background" @click="close"></div>
             <div class="modal-content">
         <div class="box">
-        <h1 class="title">Title</h1>
+        <pre>{{ pickerImages | json }}</pre>
         </div>
             </div>
             <button class="modal-close" @click="close"></button>

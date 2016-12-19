@@ -15,7 +15,8 @@
   },
   "dependencies": {
     "@lassehaslev/vue-modal": "^3.0.0",
-    "vue": "^2.1.0"
+    "vue": "^2.1.0",
+    "vue-resource": "^1.0.3"
   },
   "devDependencies": {
     "babel-core": "^6.0.0",
