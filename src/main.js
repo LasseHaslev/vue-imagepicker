@@ -1,33 +1,7 @@
 import Vue from 'vue'
-
-import { ImagePickerInstall } from './ImagePicker'
-import ImagePicker from './ImagePicker'
-
-Vue.use( ImagePickerInstall );
-
-var data = [];
-for (var i = 0, len = 10; i < len; i++) {
-    data.push({
-        id: i,
-        path: "http://placehold.it/350x350",
-    });
-}
+import App from './App.vue'
 
 new Vue({
-    el: 'body',
-
-    data() {
-        return {
-            selected: [ data[1], data[3] ],
-            images: data,
-        }
-    },
-
-    events: {
-        'ImageSelected'( selected ) {
-            console.log(selected);
-        }
-    },
-
-    components: { ImagePicker }
+  el: '#app',
+  render: h => h(App)
 })
