@@ -37,7 +37,8 @@ export default {
             this.$refs.imagePicker.open();
         },
         imagesAdaptor( images ) {
-            return images.slice( 0, 5 );
+            // return images;
+            return images.slice( 0, 20 );
         },
         imageAdaptor( image ) {
             return {

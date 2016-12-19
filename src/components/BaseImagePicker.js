@@ -45,6 +45,15 @@ export default {
                 console.log( response );
             } )
         },
+
+        confirm() {
+            console.log('Image picker confirm!');
+            this.close();
+        },
+        cancel() {
+            console.log('Image picker confirm!');
+            this.close();
+        },
     },
 
     components: {
