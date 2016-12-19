@@ -36,6 +36,7 @@ export default {
     data() {
         return {
             pickerImages: [],
+            selectedImages: [],
         }
     },
 
@@ -46,6 +47,7 @@ export default {
     methods: {
         onModalOpen() {
             this.loadImages();
+            this.selectedImages = this.selected;
         },
         loadImages() {
             this.$http.get( this.url ).then( function( response ) {
@@ -70,22 +72,22 @@ export default {
                 this.selectMultiple( image );
             }
             else {
-                this.selected = [ image.id ];
+                this.selectedImages = [ image.id ];
             }
         },
 
         selectMultiple( image ) {
             var index = this.imageIndex( image );
             if ( index != -1 ) {
-                this.selected.splice( index, 1 );
+                this.selectedImages.splice( index, 1 );
             }
             else {
-                this.selected.push( image.id );
+                this.selectedImages.push( image.id );
             }
         },
 
         imageIndex( image ) {
-            return this.selected.indexOf( image.id );
+            return this.selectedImages.indexOf( image.id );
         },
     },
 

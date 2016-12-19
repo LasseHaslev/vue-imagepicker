@@ -10,7 +10,7 @@ export default {
                         <h4 class="title">Please select an image</h4>
                     </slot>
                     <div class="columns is-mobile is-multiline">
-                        <image-picker-item v-for="image in pickerImages" :selected="selected" @confirm="confirm" @select="onItemSelect" :picker-image="image" :imageAdaptor="imageAdaptor"></image-picker-item>
+                        <image-picker-item v-for="image in pickerImages" :selected="selectedImages" @confirm="confirm" @select="onItemSelect" :picker-image="image" :imageAdaptor="imageAdaptor"></image-picker-item>
                     </div>
                     <button class="button is-primary" @click="confirm">Confirm</button>
                     <button class="button is-default" @click="cancel">Cancel</button>
