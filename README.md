@@ -1,5 +1,9 @@
+# Warning: Deprecated!!!!!!!
+Please use [ @lassehaslev/vue-image-picker ](https://github.com/LasseHaslev/vue-image-picker) instead
+
 # @lassehaslev/vue-imagepicker
 > Simple image picker for vuejs.
+
 
 ## Installation
 Run ```npm install @lassehaslev/vue-imagepicker --save``` in your project folder
